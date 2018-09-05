@@ -43,6 +43,15 @@ export class App extends Component {
     });
   }
 
+  changeVideo = (video, index) => {
+        delete this.state.videoData[index + 1];
+        this.state.videoData.unshift(video);
+
+        this.setState({
+            videoData: this.state.videoData
+        });
+  }
+
   render() {
     const isLoggedIn = this.state.loading;
 
@@ -63,6 +72,15 @@ export class App extends Component {
     } else {
       statrBlokc =  <Video 
         videoData = {this.state.videoData}
+        loader    = {
+            <ClipLoader
+            className={override}
+            sizeUnit={"px"}
+            size={150}
+            color={'#123abc'}
+            loading={this.state.loading}
+          />
+        }
       />
     }
 
@@ -74,7 +92,8 @@ export class App extends Component {
         <div className="row">
           {statrBlokc}
           <List 
-            videoData = {this.state.videoData}
+            videoData   = {this.state.videoData}
+            changeVideo = {this.changeVideo}
           />
         </div>
       </main>

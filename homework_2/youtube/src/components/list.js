@@ -5,13 +5,13 @@ export class List extends Component {
 
   render() {
     let videoData = this.props.videoData.slice(1);
-    console.log(videoData);
+
     return (
       <ul className="col-md-4 list-group">
       {
-        videoData.map(video => {
+        videoData.map( (video, i) => {
           return (
-            <li className="list-group-item">
+            <li className="list-group-item" onClick = {() => this.props.changeVideo(video, i)}>
               <div className="video-list media">
                   <div className="video-list media">
                       <div className="media-left">
