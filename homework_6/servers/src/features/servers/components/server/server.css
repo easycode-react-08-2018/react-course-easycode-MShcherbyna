@@ -1,0 +1,8 @@
+.server__item {
+  border: 1px solid red;
+  padding: 20px;
+}
+
+ul > li {
+  list-style: none;
+}
