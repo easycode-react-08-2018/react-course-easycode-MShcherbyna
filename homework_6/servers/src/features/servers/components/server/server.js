@@ -18,18 +18,20 @@ export class ServerComponent extends React.Component {
     }
 
     getName = (event) => {
-        const { editServer,  index} = this.props;
+        const { editServer,  index, name} = this.props;
 
         editServer({
             name: event.target.value,
-            index: index
+            index: index,
+            oldName: name
         });
     }
 
     deleteServer = () => {
-        const { deleteServer,  index} = this.props;
+        const { deleteServer, index, name} = this.props;
 
         deleteServer({
+            name: name,
             index: index
         });
     }
@@ -37,6 +39,7 @@ export class ServerComponent extends React.Component {
     render() {
         const { isInEditMode } = this.state;
         const { name } = this.props;
+
         return (
             <div className="server__item">
                 <TextEditor
@@ -54,7 +57,7 @@ export class ServerComponent extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        servers: state
+        servers: state.serversReducer
     }
 }
 

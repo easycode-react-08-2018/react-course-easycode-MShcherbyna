@@ -1,8 +1,47 @@
+.App {
+    display: flex;
+    justify-content: center;
+}
+
 .server__item {
-  border: 1px solid red;
+  border: 1px solid blue;
   padding: 20px;
 }
 
 ul > li {
   list-style: none;
+  margin-left: -40px;
+}
+
+.server_item-title {
+    padding: 5px;
+}
+
+.servers__history {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    width: 20%;
+    border: 1px solid blue;
+}
+
+.servers__history h3 {
+    margin-top: 0px;
+}
+
+.green {
+    color: green;
+
+}
+.red {
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.orange span {
+    color: #765009;
 }

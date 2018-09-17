@@ -18,9 +18,9 @@ export const serversReducer = (state = initialState, action) => {
         break;
 
         case 'EDIT_SERVER': 
-            state.find(function(server, index){
+            state.find(function(server, i){
                 if (server.index == action.peyload.server.index) {
-                    state[index] = action.peyload.server.name
+                    state[i].name = action.peyload.server.name
 
                     return server;
                 }
@@ -30,9 +30,9 @@ export const serversReducer = (state = initialState, action) => {
         break;
 
         case 'DELETE_SERVER':
-            state.find(function(server, index){
+            state.find(function(server, i){
                 if (server.index == action.peyload.server.index) {
-                    state.splice(index, 1);
+                    state.splice(i, 1);
                     return server;
                 }
             });
