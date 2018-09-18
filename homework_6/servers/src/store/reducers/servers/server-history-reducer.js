@@ -23,14 +23,18 @@ export const serversHistoryReducer = (state = initialState, action) => {
         break;
 
         case 'EDIT_SERVER':
-            let renameServer = {
-                rename: {
-                    oldName: action.peyload.server.oldName,
-                    newName:action.peyload.server.name
+            if (action.peyload.server.oldName !== action.peyload.server.name) {
+                let renameServer = {
+                    rename: {
+                        oldName: action.peyload.server.oldName,
+                        newName:action.peyload.server.name
+                    }
                 }
+    
+                return [...state, renameServer];
             }
 
-            return [...state, renameServer];
+            return state;
         break;
 
         default: {

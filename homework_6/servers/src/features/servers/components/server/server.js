@@ -5,25 +5,41 @@ import { deleteServer } from '../../../../store/actions/server-actions/delete-se
 import { connect } from 'react-redux';
 
 export class ServerComponent extends React.Component {
-    state = {
-        isInEditMode: false
-    }
+    // state = {
+    //     isInEditMode: false,
+    // }
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            isInEditMode: false,
+            name: this.props.name
+        }
+    }
     toggleEditMode = () => {
+        const { editServer, index } = this.props;
+        const { isInEditMode } = this.state;
+
         this.setState((prevState) => {
             return {
                 isInEditMode: !prevState.isInEditMode
             }
         });
+
+        if (isInEditMode) {
+            const { name } = this.state;
+
+            editServer({
+                name: name,
+                index: index,
+                oldName: this.props.name
+            });
+        }
     }
 
     getName = (event) => {
-        const { editServer,  index, name} = this.props;
-
-        editServer({
-            name: event.target.value,
-            index: index,
-            oldName: name
+        this.setState({
+            name: event.target.value
         });
     }
 
@@ -37,8 +53,8 @@ export class ServerComponent extends React.Component {
     }
 
     render() {
-        const { isInEditMode } = this.state;
-        const { name } = this.props;
+        const { isInEditMode, name } = this.state;
+        // const { name } = this.props;
 
         return (
             <div className="server__item">

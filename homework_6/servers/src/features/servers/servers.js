@@ -19,7 +19,7 @@ export class ServersComponent extends React.Component {
 
     render() {
         const { servers } = this.props;
-        console.log(33333333, servers);
+
         return (
             <div>
                 <ul>

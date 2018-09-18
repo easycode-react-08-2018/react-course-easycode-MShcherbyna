@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 export class ServersHistoryComponent extends React.Component {
     render() {
-        console.log("history component", this.props.history);
         const { history } = this.props;
 
         return (
